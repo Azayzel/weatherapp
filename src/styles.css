@@ -1,1 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Master Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+body, input[text], button {
+  color: #888;
+  font-family: Cambria, Georgia;
+}
+/* . . . */
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+.x_panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 17px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    opacity: 1;
+    transition: all .2s ease;
+}
+
+.x_title {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 1px 5px 6px;
+    margin-bottom: 10px;
+}
+
+.panel_toolbox {
+    float: right;
+    min-width: 70px;
+}
+.navbar-right {
+    margin-right: 0;
+}
+.panel_toolbox>li {
+    float: left;
+    cursor: pointer;
+}
+.nav>li {
+    position: relative;
+    display: block;
+}
+.panel_toolbox>li>a {
+    padding: 5px;
+    color: #C5C7CB;
+    font-size: 14px;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 13px 15px 12px;
+}
+.dropdown-menu {
+    border: medium none;
+    box-shadow: none;
+    display: none;
+    float: left;
+    font-size: 12px;
+    left: 0;
+    list-style: none outside none;
+    padding: 0;
+    position: absolute;
+    text-shadow: none;
+    top: 100%;
+    z-index: 9998;
+    border: 1px solid #D9DEE4;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}

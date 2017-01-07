@@ -1,0 +1,15 @@
+img.md{
+    height: 180px;
+    width: 180px;
+    border-radius: 0.3em;
+    padding: 10px;
+}
+img.right{
+    margin-top: 5px;
+}
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}

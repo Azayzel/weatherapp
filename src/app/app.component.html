@@ -1,5 +1,71 @@
-<h1>
-  {{title}}
-</h1>
+<div id="weatherWidget">
+  <img src="{{radarUrl}}" />
+<!-- start of weather widget -->
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                        {{title}}
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cog fa-spin"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li>
+                              <input type="text" placeholder="&#F002; Search By ZIP" ([ngModel])="zip">
+                            </li>
+                            <li>
+                              <a href="#">Extended</a>
+                            </li>
+                            <li>
+                              <a (click)="pullRadar()">Radar</a>
+                            </li>                            
+                          </ul>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <!-- End Title Bar -->
+                    <div id="radarWeather"></div>
+                    <div id="mainWeather" class="x_content">
+                      
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="weather-icon">
+                             <img class="md" src="{{current_observation.icon_url}}" />
+                          </div>
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="weather-text">
+                            <h2>{{location.city}}, {{location.state}}<br><i>{{current_observation.weather}} Day</i></h2>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="weather-text pull-right">
+                          <h6>{{current_observation.observation_time_rfc822 | date:'medium'}}</h6>
+                          <h6>Current Temp: {{current_observation.temperature_string}}</h6>
+                          <h6>Feels Like  : {{current_observation.feelslike_string}}</h6>
+                        </div>
+                      </div>
+
+                      <div class="clearfix"></div>
+
+                      <div class="row weather-days">
+                        <div class="col-sm-2">
+                          <div class="daily-weather" *ngFor="let day of extendedData|limitTo:4">
+                            <h2 class="day">{{day.title}}</h2>
+                            <h3 class="degrees">{{day.fcctext}}</h3>
+                            <img src="{{day.icon_url}}">
+                            <h5>{{day.icon}}</h5>
+                          </div>
+                        </div>
+                        
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                  </div>
+                </div>
+</div>
 
 
