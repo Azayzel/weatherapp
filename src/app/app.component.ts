@@ -15,7 +15,8 @@ import { WeatherServiceService } from './weather-service.service';
 export class AppComponent implements OnInit {
 city: string
 state: string
-radarUrl: string
+radarUrl: any
+stationCount: number
 // this does not work
 /* 
   location: Object
@@ -37,31 +38,33 @@ weatherAll = new Array;
                           .subscribe(
                             data => { 
                               // Assign data
-                              console.log(data)
                               this.city = data.location.city;
                               this.state = data.location.state;
                               this.current_observation = data.current_observation;
                               this.location = data.location;
+                              this.stationCount = data.location.nearby_weather_stations.pws.length;
+                                   // Construct url from service    
+                               this.weatherService.pullRadar()
+                                                   .subscribe(data => {
+                                                   this.radarUrl = data
+                                                                      })
                            },
                             err => console.error(err),
                             () => this.weatherService.getExtended(this.city, this.state)
                                                       .subscribe(data => {
                                                         this.extendedData = data.forecast.txt_forecast.forecastday;
-                                                        console.log(this.extendedData)
-                                                      })                          );
+                                                      })                         
+                                      );
+ 
                           
   }
 
   pullRadar(){
-     this.weatherService.pullRadar(this.city,this.state)
-                          .subscribe(
-                            data => { 
-                              // Assign data
-                              console.log(data)
-                              this.radarUrl = data.satellite.image_url_vis
-                           },
-                            err => console.error(err),
-                            () => console.log("done")
-                          );
+  // construct url from city and state
+     this.radarUrl = this.weatherService.pullRadar()
+                                        .subscribe(data => {
+                                            this.radarUrl = data
+                                                          });
+                          
   }
 }
