@@ -8,11 +8,11 @@
                     <div class="x_title">
                         {{title}}
                       <ul class="nav navbar-right panel_toolbox btn-group">
-                        <li>
-                         <input class="form-control" type="text" placeholder="&#F002; Search By ZIP" ([ngModel])="zip">
+                        <li class="row">
+                         <input id="zip" class="form-control" type="text" placeholder="&#F002; Search By ZIP" (keyup.enter)="byZip(zip.value)" (blur)="byZip(zip.value)">
                         </li>
                         <li>
-                         <button class="getRadar btn btn-info" (click)="pullRadar()">Update Radar</button>
+                         <button class="getRadar btn btn-info form-control" (click)="pullRadar()">Update Radar</button>
                         </li>
                       </ul>
                       <div class="clearfix"></div>

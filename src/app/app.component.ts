@@ -67,4 +67,7 @@ weatherAll = new Array;
                                                           });
                           
   }
+  byZip(zip: string){
+    console.log(zip)
+  }
 }
